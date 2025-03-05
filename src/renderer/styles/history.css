@@ -269,7 +269,7 @@
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: var(--bg-primary);
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   width: 90%;
@@ -287,13 +287,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .modal-header h3 {
   margin: 0;
   font-size: 1.2rem;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .close-button {
@@ -310,12 +310,13 @@
 
 .modal-body {
   padding: 20px;
+  color: var(--text-primary);
 }
 
 .confirm-delete-container {
   margin-top: 15px;
   padding-top: 15px;
-  border-top: 1px dashed #eee;
+  border-top: 1px dashed var(--border-color);
 }
 
 .confirm-delete-container p {
@@ -326,14 +327,16 @@
 .confirm-delete-container input {
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
 }
 
 .modal-footer {
   padding: 15px 20px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: flex-end;
   gap: 10px;
