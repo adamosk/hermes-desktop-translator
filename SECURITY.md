@@ -9,7 +9,12 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within Hermes Desktop Translator, please send an email to [your-email@example.com](mailto:your-email@example.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Hermes Desktop Translator, please report it through our [GitHub Issues page](https://github.com/adamosk/hermes-desktop-translator/issues). All security vulnerabilities will be promptly addressed.
+
+When reporting security issues, please:
+1. Use the "Security" issue template if available
+2. Mark the issue with the "security" label
+3. Provide a clear description of the vulnerability
 
 Please include the following information in your report:
 
@@ -34,4 +39,4 @@ To keep your installation secure:
 1. Always update to the latest version
 2. Keep your DeepL API key confidential
 3. Only download the application from the official GitHub repository
-4. Report any suspicious behavior or potential vulnerabilities 
+4. Report any suspicious behavior or potential vulnerabilities through GitHub Issues 

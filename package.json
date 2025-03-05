@@ -31,7 +31,7 @@
   ],
   "author": {
     "name": "Adamos",
-    "email": "example@example.com"
+    "url": "https://github.com/adamosk/hermes-desktop-translator"
   },
   "license": "ISC",
   "dependencies": {
