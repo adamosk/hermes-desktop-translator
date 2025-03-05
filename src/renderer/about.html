@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>About Hermes Translator</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/about.css">
+  <!-- Font Awesome for modern icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="titlebar">
+      <div class="window-title-area">
+        <span class="app-icon">
+          <img src="../assets/HermesTranslateApp.ico" alt="Hermes Translator" width="16" height="16">
+        </span>
+        <span class="window-title">About Hermes Translator</span>
+      </div>
+      <div class="titlebar-controls">
+        <div class="window-controls">
+          <button id="closeAboutBtn" class="window-control close" title="Close">
+            <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 1,1 L 9,9 M 9,1 L 1,9" stroke-width="1.5" stroke-linecap="round" stroke="currentColor"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-content">
+      <div class="app-logo">
+        <img src="../assets/HermesTranslateApp.png" alt="Hermes Translator Logo" width="128" height="128">
+      </div>
+      
+      <h1>Hermes Translator</h1>
+      <div class="version">Version <span id="app-version">1.1.0</span></div>
+      
+      <div class="description">
+        A lightweight desktop application for quick and easy translations powered by DeepL's API.
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="features-section">
+        <h2>Features</h2>
+        <ul class="features-list">
+          <li><i class="fas fa-keyboard"></i> Global hotkey for quick access from anywhere</li>
+          <li><i class="fas fa-language"></i> Support for multiple languages via DeepL API</li>
+          <li><i class="fas fa-history"></i> Translation history tracking and management</li>
+          <li><i class="fas fa-tachometer-alt"></i> Real-time translation as you type</li>
+          <li><i class="fas fa-moon"></i> Dark mode support for comfortable night use</li>
+          <li><i class="fas fa-chart-line"></i> API usage monitoring and statistics</li>
+          <li><i class="fas fa-desktop"></i> System tray integration for minimal footprint</li>
+        </ul>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="info-section">
+        <h2>Information</h2>
+        <table>
+          <tr>
+            <td>Developer:</td>
+            <td>Adamos J. Karayiannis</td>
+          </tr>
+          <tr>
+            <td>Release Date:</td>
+            <td>March 5, 2025</td>
+          </tr>
+          <tr>
+            <td>Operating System:</td>
+            <td><span id="os-info">Windows</span></td>
+          </tr>
+          <tr>
+            <td>Electron Version:</td>
+            <td><span id="electron-version">35.0.0</span></td>
+          </tr>
+          <tr>
+            <td>Node.js Version:</td>
+            <td><span id="node-version">16.x</span></td>
+          </tr>
+          <tr>
+            <td>Translation API:</td>
+            <td>DeepL API</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="legal-section">
+        <h2>Legal</h2>
+        <p>
+          Copyright © 2025 Hermes Desktop Translator<br>
+          Licensed under the ISC License
+        </p>
+        <div class="links">
+          <a href="#" id="license-link">View License</a>
+          <a href="#" id="github-link">GitHub Repository</a>
+        </div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="credits-section">
+        <h2>Credits & Acknowledgements</h2>
+        <ul>
+          <li><a href="#" class="external-link" data-url="https://www.electronjs.org/">Electron</a> - Cross-platform desktop app framework</li>
+          <li><a href="#" class="external-link" data-url="https://www.deepl.com/pro-api">DeepL API</a> - Translation services</li>
+          <li><a href="#" class="external-link" data-url="https://fontawesome.com/">Font Awesome</a> - Icons used throughout the app</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/about.js"></script>
+</body>
+</html> 

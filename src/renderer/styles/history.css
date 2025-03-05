@@ -1,0 +1,367 @@
+/* History specific styles */
+
+/* Container adjustments */
+.container {
+  position: relative;
+  width: 400px;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Remove old header styles since we use titlebar now */
+
+/* Make sure titlebar controls display correctly */
+.titlebar {
+  -webkit-app-region: drag;
+}
+
+.titlebar .window-title-area {
+  flex: 1;
+}
+
+.titlebar-controls {
+  display: flex;
+  align-items: center;
+  -webkit-app-region: no-drag;
+}
+
+.titlebar-controls .titlebar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  transition: background-color 0.2s;
+}
+
+.titlebar-controls .titlebar-button i {
+  font-size: 16px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.titlebar-controls .titlebar-button:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+.titlebar-controls .window-control {
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 32px;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.titlebar-controls .window-control:hover {
+  background-color: var(--close-hover);
+  color: #fff;
+}
+
+.titlebar-controls .window-control svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--text-primary);
+  stroke-width: 1.5px;
+  fill: none;
+  pointer-events: none;
+}
+
+.titlebar-controls .window-control:hover svg {
+  stroke: #fff;
+}
+
+/* Content area with scrolling */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  height: calc(100vh - 32px); /* Adjust height for titlebar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Custom scrollbar for Webkit browsers */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+/* History list container */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* History item */
+.history-item {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.history-item:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* History item header */
+.history-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.history-timestamp {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.history-languages {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--focus-color);
+}
+
+/* History item content */
+.history-text {
+  display: flex;
+  gap: 10px;
+}
+
+.history-source, .history-target {
+  flex: 1;
+}
+
+.history-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.history-content {
+  font-size: 13px;
+  color: var(--text-primary);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+}
+
+.divider {
+  width: 1px;
+  background-color: var(--border-color);
+  margin: 0 8px;
+}
+
+/* History item actions */
+.history-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+.history-action-button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.history-action-button:hover {
+  background-color: var(--button-secondary-hover);
+  color: var(--text-primary);
+}
+
+.delete-button {
+  color: var(--error-color);
+}
+
+.delete-button:hover {
+  color: var(--error-color);
+}
+
+/* Empty history message */
+.empty-message {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text-muted);
+}
+
+.empty-message i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+.empty-message p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow: auto;
+  animation: modalOpen 0.2s ease-out;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+  animation: modalOpen 0.3s ease-out;
+}
+
+@keyframes modalOpen {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.close-button:hover {
+  color: var(--close-hover);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.confirm-delete-container {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #eee;
+}
+
+.confirm-delete-container p {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.confirm-delete-container input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.button {
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.secondary {
+  background-color: #e6e6e6;
+  color: #333;
+}
+
+.secondary:hover {
+  background-color: #d9d9d9;
+}
+
+.danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.danger:hover {
+  background-color: #c0392b;
+} 

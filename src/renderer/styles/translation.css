@@ -1,0 +1,434 @@
+/* Translation page specific styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+/* Titlebar styles */
+.titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 4px 0 10px;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.window-title-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.window-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.titlebar-controls {
+  display: flex;
+  align-items: center;
+  -webkit-app-region: no-drag;
+}
+
+.titlebar-button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-primary);
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.titlebar-button:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+/* Override window controls to ensure consistency */
+.window-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 32px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-app-region: no-drag;
+  z-index: 100;
+  background-color: transparent;
+  border: none;
+  color: var(--text-primary);
+}
+
+.window-control:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.window-control.close {
+  background-color: transparent;
+}
+
+.window-control.close:hover {
+  background-color: var(--close-hover);
+}
+
+.window-control.close:hover svg {
+  stroke: #fff;
+}
+
+.window-control svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--text-primary);
+  stroke-width: 1.5px;
+  fill: none;
+  pointer-events: none;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 2px;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-tertiary);
+  display: none;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  width: 100%;
+  background-color: var(--button-primary-bg);
+  animation: loading 1.5s infinite ease-in-out;
+}
+
+.content {
+  padding: 10px 15px;
+  height: calc(100vh - 34px); /* Adjust for new titlebar height */
+}
+
+/* Container styling */
+.container {
+  background-color: var(--bg-primary);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.translation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: calc(100% - 10px);
+}
+
+.translation-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: calc(50% - 10px);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-tertiary);
+}
+
+.language-select {
+  min-width: 160px;
+  padding: 6px 8px;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.panel-toolbar {
+  display: flex;
+  gap: 5px;
+}
+
+.toolbar-button {
+  background-color: var(--button-secondary-bg);
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s;
+  color: var(--button-secondary-text);
+}
+
+.toolbar-button:hover {
+  background-color: var(--button-secondary-hover);
+}
+
+.button-icon {
+  font-size: 14px;
+}
+
+textarea {
+  flex: 1;
+  border: none;
+  padding: 15px;
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.5;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.controls-bar {
+  padding: 8px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-tertiary);
+  text-align: center;
+}
+
+.translate-button {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.translate-button:hover {
+  background-color: var(--button-primary-hover);
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* Copy flash effect */
+@keyframes copyFlash {
+  0% { background-color: var(--bg-secondary); }
+  50% { background-color: var(--focus-color); opacity: 0.1; }
+  100% { background-color: var(--bg-secondary); }
+}
+
+.copy-flash {
+  animation: copyFlash 0.5s ease-in-out;
+}
+
+/* Text info area for character count */
+.text-info {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background-color: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+}
+
+.char-count {
+  margin-left: auto;
+}
+
+.window-controls {
+  display: flex;
+  -webkit-app-region: no-drag;
+  z-index: 100;
+}
+
+/* Auto-detection notification */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.notification.show {
+  opacity: 1;
+}
+
+/* Pulse animation for active mic button */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.toolbar-button.active i.fa-microphone-slash {
+  animation: pulse 1.5s infinite;
+}
+
+/* Additional styles for offline status */
+.offline-indicator {
+  position: fixed;
+  top: 40px;
+  right: 10px;
+  background: var(--error-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+/* Recent language pairs */
+.recent-pairs {
+  margin-top: 15px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.recent-pairs-heading {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.recent-pairs-heading i {
+  margin-right: 6px;
+  color: var(--accent-color);
+}
+
+.recent-pairs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.recent-pair-button {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.recent-pair-button:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-color);
+}
+
+.recent-pair-button i {
+  margin: 0 6px;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.recent-pair-source, .recent-pair-target {
+  white-space: nowrap;
+}
+
+/* Speech recognition button styles */
+.toolbar-button.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.toolbar-button.active:hover {
+  background-color: var(--accent-hover);
+}
+
+.api-usage {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding: 0 8px;
+  cursor: default;
+  margin-right: 5px;
+  height: 30px;
+}
+
+.api-usage i {
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.api-usage.warning {
+  color: var(--warning-color);
+  animation: pulse-warning 2s infinite;
+  font-weight: bold;
+  background-color: rgba(231, 76, 60, 0.1);
+  border-radius: 3px;
+}
+
+@keyframes pulse-warning {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+} 

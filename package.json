@@ -1,0 +1,99 @@
+{
+  "name": "hermesdesktoptranslator",
+  "version": "1.1.0",
+  "description": "A desktop application for translating text using DeepL API with global hotkey support",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "release": "electron-builder --publish always",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamosk/hermes-desktop-translator.git"
+  },
+  "homepage": "https://github.com/adamosk/hermes-desktop-translator#readme",
+  "bugs": {
+    "url": "https://github.com/adamosk/hermes-desktop-translator/issues"
+  },
+  "keywords": [
+    "translator",
+    "deepl",
+    "electron",
+    "desktop",
+    "i18n",
+    "translation"
+  ],
+  "author": {
+    "name": "Adamos",
+    "email": "example@example.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "deepl-node": "^1.17.0",
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8",
+    "electron-is-dev": "^3.0.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-store": "^10.0.1",
+    "keytar": "^7.9.0"
+  },
+  "build": {
+    "appId": "com.hermes.translator",
+    "productName": "Hermes Translator",
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "LICENSE",
+      "README.md"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "src/assets/HermesTranslateApp.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.utilities",
+      "icon": "src/assets/HermesTranslateApp.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "icon": "src/assets/HermesTranslateApp.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Hermes Translator"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "adamosk",
+      "repo": "hermes-desktop-translator"
+    }
+  }
+}

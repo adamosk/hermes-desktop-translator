@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermes Translator</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/translation.css">
+  <!-- Font Awesome for modern icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="titlebar">
+      <div class="window-title-area">
+        <span class="app-icon">
+          <img src="../assets/HermesTranslateApp.ico" alt="Hermes Translator" width="16" height="16">
+        </span>
+        <span class="window-title">Hermes Translator</span>
+      </div>
+      <div class="titlebar-controls">
+        <button id="about-button" class="titlebar-button" title="About">
+          <i class="fas fa-info-circle" style="font-size: 16px; display: inline-block; width: 16px; height: 16px;"></i>
+        </button>
+        <button id="history-button" class="titlebar-button" title="Translation History">
+          <i class="fas fa-history" style="font-size: 16px; display: inline-block; width: 16px; height: 16px;"></i>
+        </button>
+        <button id="settings-button" class="titlebar-button" title="Settings">
+          <i class="fas fa-cog" style="font-size: 16px; display: inline-block; width: 16px; height: 16px;"></i>
+        </button>
+        <div class="window-controls">
+          <button id="minimizeBtn" class="window-control" title="Minimize">
+            <svg viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 0,0.5 L 10,0.5" stroke-width="1" stroke-linecap="round" stroke="currentColor"></path>
+            </svg>
+          </button>
+          <button id="closeBtn" class="window-control close" title="Close">
+            <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 1,1 L 9,9 M 9,1 L 1,9" stroke-width="1.5" stroke-linecap="round" stroke="currentColor"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="errorMessage" class="error" style="display: none;"></div>
+    
+    <div id="progressBar" class="progress-bar">
+      <div class="progress-bar-inner"></div>
+    </div>
+    
+    <div class="content">
+      <div class="translation-container">
+        <div class="translation-panel">
+          <div class="panel-header">
+            <select id="source-language" class="language-select">
+              <option value="auto" selected>Auto-detect</option>
+              <option value="BG">Bulgarian</option>
+              <option value="CS">Czech</option>
+              <option value="DA">Danish</option>
+              <option value="DE">German</option>
+              <option value="EL">Greek</option>
+              <option value="EN">English</option>
+              <option value="ES">Spanish</option>
+              <option value="ET">Estonian</option>
+              <option value="FI">Finnish</option>
+              <option value="FR">French</option>
+              <option value="HU">Hungarian</option>
+              <option value="ID">Indonesian</option>
+              <option value="IT">Italian</option>
+              <option value="JA">Japanese</option>
+              <option value="KO">Korean</option>
+              <option value="LT">Lithuanian</option>
+              <option value="LV">Latvian</option>
+              <option value="NL">Dutch</option>
+              <option value="PL">Polish</option>
+              <option value="PT">Portuguese</option>
+              <option value="RO">Romanian</option>
+              <option value="RU">Russian</option>
+              <option value="SK">Slovak</option>
+              <option value="SL">Slovenian</option>
+              <option value="SV">Swedish</option>
+              <option value="TR">Turkish</option>
+              <option value="UK">Ukrainian</option>
+              <option value="ZH">Chinese</option>
+            </select>
+            <div class="panel-toolbar">
+              <button id="copy-source" class="toolbar-button" title="Copy source text">
+                <i class="far fa-copy"></i>
+              </button>
+              <button id="clearSourceBtn" class="toolbar-button" title="Clear source text">
+                <i class="far fa-trash-alt"></i>
+              </button>
+              <button id="pasteBtn" class="toolbar-button" title="Paste from clipboard">
+                <i class="far fa-paste"></i>
+              </button>
+            </div>
+          </div>
+          <textarea id="source-text" placeholder="Enter text to translate"></textarea>
+          <div class="text-info">
+            <span id="source-char-count" class="char-count">0 characters</span>
+          </div>
+          <div id="sourceControlsBar" class="controls-bar" style="display: none;">
+            <button id="translate-from-source" class="translate-button">
+              <i class="far fa-arrow-right"></i> Translate
+            </button>
+          </div>
+        </div>
+        
+        <div class="translation-panel">
+          <div class="panel-header">
+            <select id="target-language" class="language-select">
+              <option value="BG">Bulgarian</option>
+              <option value="CS">Czech</option>
+              <option value="DA">Danish</option>
+              <option value="DE">German</option>
+              <option value="EL">Greek</option>
+              <option value="EN-GB">English (British)</option>
+              <option value="EN-US" selected>English (American)</option>
+              <option value="ES">Spanish</option>
+              <option value="ET">Estonian</option>
+              <option value="FI">Finnish</option>
+              <option value="FR">French</option>
+              <option value="HU">Hungarian</option>
+              <option value="ID">Indonesian</option>
+              <option value="IT">Italian</option>
+              <option value="JA">Japanese</option>
+              <option value="KO">Korean</option>
+              <option value="LT">Lithuanian</option>
+              <option value="LV">Latvian</option>
+              <option value="NL">Dutch</option>
+              <option value="PL">Polish</option>
+              <option value="PT-BR">Portuguese (Brazilian)</option>
+              <option value="PT-PT">Portuguese (European)</option>
+              <option value="RO">Romanian</option>
+              <option value="RU">Russian</option>
+              <option value="SK">Slovak</option>
+              <option value="SL">Slovenian</option>
+              <option value="SV">Swedish</option>
+              <option value="TR">Turkish</option>
+              <option value="UK">Ukrainian</option>
+              <option value="ZH">Chinese (simplified)</option>
+            </select>
+            <div class="panel-toolbar">
+              <button id="copy-target" class="toolbar-button" title="Copy translation">
+                <i class="far fa-copy"></i>
+              </button>
+              <button id="clearTargetBtn" class="toolbar-button" title="Clear translation">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+          <textarea id="target-text" placeholder="Translation will appear here"></textarea>
+          <div class="text-info">
+            <span id="target-char-count" class="char-count">0 characters</span>
+          </div>
+          <div id="targetControlsBar" class="controls-bar" style="display: none;">
+            <button id="translate-from-target" class="translate-button">
+              <i class="far fa-arrow-left"></i> Translate Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/translation.js"></script>
+</body>
+</html> 

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hermes Translator - Settings</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/settings.css">
+  <!-- Font Awesome for modern icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="titlebar">
+      <div class="window-title-area">
+        <span class="app-icon">
+          <img src="../assets/HermesTranslateApp.ico" alt="Hermes Translator" width="16" height="16">
+        </span>
+        <span class="window-title">Settings</span>
+      </div>
+      <div class="titlebar-controls">
+        <div class="window-controls">
+          <button id="closeSettingsBtn" class="window-control close" title="Close">
+            <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 1,1 L 9,9 M 9,1 L 1,9" stroke-width="1.5" stroke-linecap="round" stroke="currentColor"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="alert" style="display: none;" class="alert"></div>
+    
+    <div class="settings-content">
+      <div class="settings-section">
+        <h3>API Settings</h3>
+        <div class="form-group">
+          <label for="apiKey">DeepL API Key</label>
+          <input type="password" id="apiKey" placeholder="Enter your DeepL API key">
+          <small style="display: block; margin-top: 5px; color: var(--text-muted);">
+            Get your free API key from <a href="https://www.deepl.com/pro-api" target="_blank">DeepL</a>
+          </small>
+        </div>
+        
+        <!-- API Usage section will be populated by JavaScript -->
+        <div class="form-group">
+          <label>API Usage</label>
+          <div id="api-usage-container" class="api-usage-section">
+            <!-- Usage stats will be inserted here -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h3>App Settings</h3>
+        <div class="form-group">
+          <label for="shortcut">Global Shortcut</label>
+          <div class="shortcut-capture">
+            <input type="text" id="shortcut" placeholder="Click to record shortcut" readonly>
+            <button id="recordShortcutBtn" type="button">Record</button>
+          </div>
+          <small style="display: block; margin-top: 5px; color: var(--text-muted);">
+            Press the key combination you want to use
+          </small>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-label">
+            Minimize to tray instead of closing
+            <div class="description">When enabled, the app will minimize to tray instead of closing</div>
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="minimizeToTray">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-label">
+            ESC key closes the app
+            <div class="description">When "Minimize to tray" is enabled, this setting has no effect</div>
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="minimizeToTrayOnEsc">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-label">
+            Lost focus closes the app
+            <div class="description">When "Minimize to tray" is enabled, this setting minimizes to tray instead</div>
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="closeOnFocusLoss">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h3>Translation Settings</h3>
+        <div class="setting-item">
+          <div class="setting-label">
+            Automatically translate clipboard contents
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="autoTranslateClipboard">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-label">
+            Translate in real-time as you type
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="realTimeTranslation">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-label">
+            Show notifications when minimized to tray
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="showTrayNotifications">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-label">
+            Dark theme
+            <div class="description">Switch between light and dark themes</div>
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="darkTheme">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-label">
+            Save translation history
+            <div class="description">
+              When disabled, no new translations will be saved to history.
+              <a href="#" id="clearHistoryLink" class="clear-history-link">Clear all history</a>
+            </div>
+          </div>
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="saveHistory">
+            <span class="toggle-switch"></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="actions">
+        <button id="saveBtn" class="primary">Save Settings</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/settings.js"></script>
+</body>
+</html> 

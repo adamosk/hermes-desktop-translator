@@ -1,0 +1,119 @@
+/* Theme variables */
+:root {
+  /* Light theme (default) */
+  --bg-primary: #f9f9f9;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f0f0;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+  --border-color: #e0e0e0;
+  --header-bg: #f9f9f9;
+  --header-text: #333333;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --button-primary-bg: #4a90e2;
+  --button-primary-text: #ffffff;
+  --button-primary-hover: #3a7bc8;
+  --button-secondary-bg: #f0f0f0;
+  --button-secondary-text: #333333;
+  --button-secondary-hover: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --focus-color: #4a90e2;
+  --error-color: #e53935;
+  --success-color: #43a047;
+  --panel-bg: #ffffff;
+  --close-hover: #e81123;
+  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: #cccccc;
+  --scrollbar-thumb-hover: #999999;
+  --control-hover-light: rgba(0, 0, 0, 0.1);
+  --control-hover-dark: rgba(255, 255, 255, 0.1);
+  --background: #f9f9f9;
+  --accent-color: #2b5dfc;
+  --accent-hover: #1e4dd6;
+  --hover-bg: #f0f0f0;
+  --titlebar-bg: #f9f9f9;
+  --titlebar-border: #e0e0e0;
+  --warning-color: #e74c3c;
+  --notification-bg: rgba(255, 255, 255, 0.9);
+  --settings-header-bg: #f9f9f9;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #252525;
+  --bg-tertiary: #333333;
+  --text-primary: #f0f0f0;
+  --text-secondary: #cccccc;
+  --text-muted: #999999;
+  --border-color: #444444;
+  --header-bg: #252525;
+  --header-text: #f0f0f0;
+  --input-bg: #333333;
+  --input-border: #444444;
+  --button-primary-bg: #0078d7;
+  --button-primary-text: #ffffff;
+  --button-primary-hover: #0063b1;
+  --button-secondary-bg: #444444;
+  --button-secondary-text: #f0f0f0;
+  --button-secondary-hover: #555555;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --focus-color: #0078d7;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --panel-bg: #252525;
+  --close-hover: #e81123;
+  --scrollbar-track: #333333;
+  --scrollbar-thumb: #555555;
+  --scrollbar-thumb-hover: #777777;
+  --control-hover-light: rgba(0, 0, 0, 0.1);
+  --control-hover-dark: rgba(255, 255, 255, 0.1);
+  --background: #1e1e1e;
+  --accent-color: #4e7fff;
+  --accent-hover: #699fff;
+  --hover-bg: #333333;
+  --titlebar-bg: #1e1e1e;
+  --titlebar-border: #444444;
+  --warning-color: #ff6b6b;
+  --notification-bg: rgba(40, 40, 40, 0.9);
+  --settings-header-bg: #1e1e1e;
+}
+
+/* Transitions for smooth theme switching */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Commenting out the automatic system theme detection 
+   as we want manual control through the toggle */
+/*
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #252525;
+    --bg-tertiary: #333333;
+    --text-primary: #f0f0f0;
+    --text-secondary: #cccccc;
+    --text-muted: #999999;
+    --border-color: #444444;
+    --header-bg: #252525;
+    --header-text: #f0f0f0;
+    --input-bg: #333333;
+    --input-border: #444444;
+    --button-primary-bg: #0078d7;
+    --button-primary-text: #ffffff;
+    --button-primary-hover: #0063b1;
+    --button-secondary-bg: #444444;
+    --button-secondary-text: #f0f0f0;
+    --button-secondary-hover: #555555;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --focus-color: #0078d7;
+    --error-color: #f44336;
+    --success-color: #4caf50;
+    --panel-bg: #252525;
+    --close-hover: #e81123;
+  }
+}
+*/ 
