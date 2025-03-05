@@ -997,10 +997,10 @@ app.whenReady().then(async () => {
     // Register global shortcut
     registerGlobalShortcut();
     
-    // Check if we have an API key
-    const apiKeySet = store.get('apiKeySet', false);
+    // Check if we have an API key by actually retrieving it
+    const apiKey = await getApiKey();
     
-    if (!apiKeySet) {
+    if (!apiKey) {
       console.log('No API key found, showing settings window');
       createSettingsWindow();
     } else {
@@ -1020,11 +1020,13 @@ app.whenReady().then(async () => {
     app.on('activate', () => {
       if (BrowserWindow.getAllWindows().length === 0) {
         // Check if API key exists before creating window
-        if (store.get('apiKeySet', false)) {
-          createTranslationWindow();
-        } else {
-          createSettingsWindow();
-        }
+        getApiKey().then(apiKey => {
+          if (apiKey) {
+            createTranslationWindow();
+          } else {
+            createSettingsWindow();
+          }
+        });
       }
     });
   } catch (error) {

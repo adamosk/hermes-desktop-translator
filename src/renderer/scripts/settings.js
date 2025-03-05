@@ -17,7 +17,6 @@ let autoTranslateClipboardCheckbox;
 let realTimeTranslationCheckbox;
 let showTrayNotificationsCheckbox;
 let saveHistoryCheckbox;
-let clearHistoryLink;
 let darkThemeCheckbox;
 
 // Shortcut recording state
@@ -44,7 +43,6 @@ function init() {
   realTimeTranslationCheckbox = document.getElementById('realTimeTranslation');
   showTrayNotificationsCheckbox = document.getElementById('showTrayNotifications');
   saveHistoryCheckbox = document.getElementById('saveHistory');
-  clearHistoryLink = document.getElementById('clearHistoryLink');
   darkThemeCheckbox = document.getElementById('darkTheme');
   
   // Set up event listeners
@@ -124,9 +122,6 @@ function setupEventListeners() {
   // Listen for key combinations when recording shortcut
   document.addEventListener('keydown', handleShortcutRecording);
   
-  // Clear history link
-  clearHistoryLink.addEventListener('click', handleClearHistory);
-  
   // Dark theme toggle - apply immediately for preview
   darkThemeCheckbox.addEventListener('change', function(e) {
     console.log('Dark theme checkbox changed:', this.checked);
@@ -150,6 +145,14 @@ function setupEventListeners() {
     toggle.addEventListener('click', function(e) {
       console.log(`Toggle ${this.id} clicked`);
       // Don't stop propagation - this would interfere with the change event
+    });
+  });
+  
+  // Make external links open in default browser
+  document.querySelectorAll('a[href^="http"]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.api.openExternal(link.href);
     });
   });
 }
@@ -333,40 +336,6 @@ function showAlert(message, type = 'info') {
   setTimeout(() => {
     alertEl.style.display = 'none';
   }, 5000);
-}
-
-/**
- * Handle clear history button click
- */
-function handleClearHistory(event) {
-  event.preventDefault();
-  
-  // Confirm before clearing
-  const confirmClear = window.confirm('Are you sure you want to clear all translation history? This action cannot be undone.');
-  
-  if (confirmClear) {
-    // Ask user to type "delete" to confirm
-    const confirmInput = window.prompt('Type "delete" to confirm clearing all history');
-    
-    if (confirmInput && confirmInput.toLowerCase() === 'delete') {
-      clearHistory();
-    } else if (confirmInput !== null) {
-      showAlert('History clearing cancelled. You must type "delete" to confirm.', 'info');
-    }
-  }
-}
-
-/**
- * Clear all history
- */
-async function clearHistory() {
-  try {
-    await window.api.clearHistory();
-    showAlert('Translation history has been cleared.', 'success');
-  } catch (error) {
-    console.error('Error clearing history:', error);
-    showAlert('Failed to clear history', 'error');
-  }
 }
 
 /**
