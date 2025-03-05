@@ -42,8 +42,8 @@
     "keytar": "^7.9.0"
   },
   "devDependencies": {
-    "electron": "^35.0.0",
-    "electron-builder": "^25.1.8"
+    "electron": "^22.3.27",
+    "electron-builder": "^24.9.1"
   },
   "build": {
     "appId": "com.hermes.translator",
