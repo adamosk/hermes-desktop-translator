@@ -19,7 +19,7 @@ const Translator = require('./utils/translator');
 // App configuration
 const isDev = process.env.NODE_ENV === 'development';
 const APP_NAME = 'Hermes Translator';
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.1.1';
 const KEYTAR_SERVICE = 'HermesDesktopTranslator';
 const KEYTAR_ACCOUNT = 'deepl-api-key';
 
