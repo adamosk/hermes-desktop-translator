@@ -137,7 +137,7 @@ function createTranslationWindow() {
   
   // Create new window
   translationWindow = new BrowserWindow({
-    width: 700,
+    width: 600,
     height: 500,
     minWidth: 400,
     minHeight: 300,
@@ -253,8 +253,8 @@ function createSettingsWindow() {
 
   // Create settings as an overlay of the translation window
   settingsWindow = new BrowserWindow({
-    width: 600,
-    height: 500,
+    width: 400,
+    height: 550,
     parent: translationWindow,
     modal: true,
     resizable: false,
@@ -433,8 +433,8 @@ function createHistoryWindow() {
 
   // Create history as an overlay of the translation window
   historyWindow = new BrowserWindow({
-    width: 700,
-    height: 600,
+    width: 400,
+    height: 500,
     parent: translationWindow,
     modal: true,
     resizable: true,
@@ -510,8 +510,8 @@ function createAboutWindow() {
 
   // Create about as an overlay of the translation window
   aboutWindow = new BrowserWindow({
-    width: 500,
-    height: 650,
+    width: 450,
+    height: 700,
     parent: translationWindow,
     modal: true,
     resizable: false,
