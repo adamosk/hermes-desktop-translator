@@ -150,7 +150,8 @@ function createTranslationWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
+      worldSafeExecuteJavaScript: true
     }
   });
   
@@ -252,21 +253,18 @@ function createSettingsWindow() {
 
   // Create settings as an overlay of the translation window
   settingsWindow = new BrowserWindow({
-    width: 400,
-    height: 550,
+    width: 600,
+    height: 500,
     parent: translationWindow,
     modal: true,
-    frame: false,
     resizable: false,
-    fullscreenable: false,
-    transparent: false,
-    backgroundColor: '#ffffff',
-    show: false,
+    frame: false,
     icon: iconPath,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
+      worldSafeExecuteJavaScript: true
     }
   });
   
@@ -435,21 +433,18 @@ function createHistoryWindow() {
 
   // Create history as an overlay of the translation window
   historyWindow = new BrowserWindow({
-    width: 400,
-    height: 500,
+    width: 700,
+    height: 600,
     parent: translationWindow,
     modal: true,
-    frame: false,
     resizable: true,
-    fullscreenable: false,
-    transparent: false,
-    backgroundColor: '#ffffff',
-    show: false,
+    frame: false,
     icon: iconPath,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
+      worldSafeExecuteJavaScript: true
     }
   });
   
@@ -515,21 +510,18 @@ function createAboutWindow() {
 
   // Create about as an overlay of the translation window
   aboutWindow = new BrowserWindow({
-    width: 450,
-    height: 700,
+    width: 500,
+    height: 650,
     parent: translationWindow,
     modal: true,
-    frame: false,
     resizable: false,
-    fullscreenable: false,
-    transparent: false,
-    backgroundColor: '#ffffff',
-    show: false,
+    frame: false,
     icon: iconPath,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
+      worldSafeExecuteJavaScript: true
     }
   });
   
