@@ -39,11 +39,11 @@
     "electron-is-dev": "^2.0.0",
     "electron-reload": "^2.0.0-alpha.1",
     "electron-store": "^8.1.0",
-    "keytar": "^7.7.0"
+    "keytar": "^7.9.0"
   },
   "devDependencies": {
-    "electron": "^16.2.8",
-    "electron-builder": "^23.6.0"
+    "electron": "^28.2.3",
+    "electron-builder": "^24.9.1"
   },
   "build": {
     "appId": "com.hermes.translator",

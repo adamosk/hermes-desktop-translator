@@ -151,7 +151,7 @@ function createTranslationWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
-      enableRemoteModule: false
+      sandbox: false
     }
   });
   
@@ -264,7 +264,7 @@ function createSettingsWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
-      enableRemoteModule: false
+      sandbox: false
     }
   });
   
@@ -444,7 +444,7 @@ function createHistoryWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
-      enableRemoteModule: false
+      sandbox: false
     }
   });
   
@@ -521,7 +521,7 @@ function createAboutWindow() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
-      enableRemoteModule: false
+      sandbox: false
     }
   });
   
