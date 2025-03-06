@@ -6,6 +6,8 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
+    "rebuild": "electron-rebuild",
+    "prebuild": "npm run rebuild",
     "build": "electron-builder",
     "build:win": "electron-builder --win",
     "build:mac": "electron-builder --mac",
@@ -43,7 +45,8 @@
   },
   "devDependencies": {
     "electron": "^28.2.3",
-    "electron-builder": "^24.9.1"
+    "electron-builder": "^24.9.1",
+    "electron-rebuild": "^3.2.9"
   },
   "build": {
     "appId": "com.hermes.translator",
@@ -90,7 +93,11 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Hermes Translator"
+      "shortcutName": "Hermes Translator",
+      "perMachine": false,
+      "artifactName": "${productName} Setup ${version}.${ext}",
+      "deleteAppDataOnUninstall": false,
+      "displayLanguageSelector": false
     },
     "publish": {
       "provider": "github",
